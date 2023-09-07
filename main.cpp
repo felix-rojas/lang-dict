@@ -4,28 +4,38 @@
 #include <regex>
 #include <string>
 
-std::regex entry("<entry form=\"([^\"]*)\"");
-std::regex entry_end("<\\/entry>");
+const std::regex entry("<entry form=\"([^\"]*)\"");
+const std::regex entry_end("<\\/entry>");
 // Define the regex pattern
-std::regex pattern("<([^>]+)>(.*?)<\\/\\1>");
+const std::regex pattern("<([^>]+)>(.*?)<\\/\\1>");
 
-int main() {
+const std::string filepath = "./wiktionaryXfr2010.xml";
+
+std::ifstream loadFile(std::string filepath) {
   // Load xml file
-  std::ifstream dict_file("./wiktionaryXfr2010.xml");
+  std::ifstream dict_file(filepath);
   if (!dict_file) {
     std::cerr << "File could not be loaded" << std::endl;
-    std::cerr << "Error code: " << stderr << std::endl;
-    return -1;
   }
+  return dict_file;
+}
+
+int main() {
   int i = 0;
   std::string line_data;
+  auto dict_file = loadFile(filepath);
+
+  // getline has linear time O(n)
   while (getline(dict_file, line_data) && i < 400) {
     // get the word/phrase to process
     std::sregex_iterator iter(line_data.begin(), line_data.end(), pattern);
     // Create an iterator to find all matches in the input string
     std::sregex_iterator end;
 
+    // generate a string match type to store results
     std::smatch match;
+    // regex_search is a O(n) operation on each processed line
+    // it processes the regex expression using Thompsons algorithm
     if (std::regex_search(line_data, match, entry) && match.size() > 1) {
       std::cout << match[1] << "\t";
     }
