@@ -20,38 +20,42 @@ std::ifstream loadFile(std::string filepath) {
   return dict_file;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
   int i = 0;
   std::string line_data;
   auto dict_file = loadFile(filepath);
 
-  // getline has linear time O(n)
-  while (getline(dict_file, line_data) && i < 400) {
-    // get the word/phrase to process
-    std::sregex_iterator iter(line_data.begin(), line_data.end(), pattern);
-    // Create an iterator to find all matches in the input string
-    std::sregex_iterator end;
+  // no parameters
+  if (argc < 2) {
+    // getline has linear time O(n)
+    while (getline(dict_file, line_data) && i < 400) {
+      // get the word/phrase to process
+      std::sregex_iterator iter(line_data.begin(), line_data.end(), pattern);
+      std::sregex_iterator
+          end; // Create an iterator to find all matches in the input string
 
-    // generate a string match type to store results
-    std::smatch match;
-    // regex_search is a O(n) operation on each processed line
-    // it processes the regex expression using Thompsons algorithm
-    if (std::regex_search(line_data, match, entry) && match.size() > 1) {
-      std::cout << match[1] << "\t";
+      std::smatch match; // generate a string match type to store results
+      // regex_search is a O(n) operation on each processed line
+      // it processes the regex expression using Thompsons algorithm
+      if (std::regex_search(line_data, match, entry) && match.size() > 1) {
+        std::cout << match[1] << "\t";
+      }
+
+      // Loop through the matches and extract the content between tags
+      while (iter != end) {
+        std::smatch match = *iter;
+        std::cout << match[1] << "\t" << match[2] << "\t";
+        ++iter;
+      }
+
+      // separate word definitions
+      if (std::regex_search(line_data, match, entry_end)) {
+        std::cout << std::endl;
+        i++;
+      }
     }
 
-    // Loop through the matches and extract the content between tags
-    while (iter != end) {
-      std::smatch match = *iter;
-      std::cout << match[1] << "\t" << match[2] << "\t";
-      ++iter;
-    }
-    if (std::regex_search(line_data, match, entry_end)) {
-      std::cout << std::endl;
-      i++;
-    }
+    dict_file.close();
+    return 0;
   }
-
-  dict_file.close();
-  return 0;
 }
