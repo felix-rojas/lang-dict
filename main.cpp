@@ -1,54 +1,47 @@
+#include <cmath>
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <string>
 
-// TODO: avoid space contamination
-using namespace std;
-
-string entry("<entry form=");
-string pageid("pageid");
-string lexemepos("<lexeme pos=");
-string definition_begin("<gloss>");
-string definition_end("</gloss>");
+std::regex entry("<entry form=\"([^\"]*)\"");
+std::regex entry_end("<\\/entry>");
+// Define the regex pattern
+std::regex pattern("<([^>]+)>(.*?)<\\/\\1>");
 
 int main() {
   // Load xml file
-  ifstream dict_file("./wiktionaryXfr2010.xml");
+  std::ifstream dict_file("./wiktionaryXfr2010.xml");
   if (!dict_file) {
-    cerr << "File could not be loaded" << endl;
-    cerr << "Error code: " << stderr << endl;
+    std::cerr << "File could not be loaded" << std::endl;
+    std::cerr << "Error code: " << stderr << std::endl;
     return -1;
   }
-
-  // store string temporarily
-  string line_data = "";
-  while (getline(dict_file, line_data)) {
+  int i = 0;
+  std::string line_data;
+  while (getline(dict_file, line_data) && i < 400) {
     // get the word/phrase to process
-    size_t found = line_data.find(entry);
-    if (found != string::npos) {
-      cout << endl;
-      size_t pos = line_data.find(pageid, found);
-      cout << line_data.substr(found + entry.size(),
-                               pos - (1 + (pageid.size() * 2)))
-           << ", ";
+    std::sregex_iterator iter(line_data.begin(), line_data.end(), pattern);
+    // Create an iterator to find all matches in the input string
+    std::sregex_iterator end;
+
+    std::smatch match;
+    if (std::regex_search(line_data, match, entry) && match.size() > 1) {
+      std::cout << std::endl;
+      std::cout << match[1] << ", ";
     }
 
-    // TODO: words can have multiple dfinitions and word types
-    /*
-    size_t lex_pos = line_data.find(lexemepos);
-    if (lex_pos != string::npos) {
-      cout << line_data.substr(lex_pos + lexemepos.size() + 1, lex_pos) << endl;
+    // Loop through the matches and extract the content between tags
+    while (iter != end) {
+      std::smatch match = *iter;
+      std::cout << match[1] << ", " << match[2] << ", ";
+      ++iter;
     }
-    */
-    size_t find_def_begin = line_data.find(definition_begin);
-    size_t find_def_end = line_data.find(definition_end);
-    if (find_def_begin != string::npos) {
-      cout << "\"";
-      cout << line_data.substr(find_def_begin + definition_begin.size(),
-                               find_def_end - (3 + definition_end.size()));
-      cout << "\", ";
-    }
+    if (std::regex_search(line_data, match, entry_end))
+      std::cout << std::endl;
+    i++;
   }
+
   dict_file.close();
   return 0;
 }
