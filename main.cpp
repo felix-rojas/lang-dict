@@ -27,19 +27,19 @@ int main() {
 
     std::smatch match;
     if (std::regex_search(line_data, match, entry) && match.size() > 1) {
-      std::cout << std::endl;
-      std::cout << match[1] << ", ";
+      std::cout << match[1] << "\t";
     }
 
     // Loop through the matches and extract the content between tags
     while (iter != end) {
       std::smatch match = *iter;
-      std::cout << match[1] << ", " << match[2] << ", ";
+      std::cout << match[1] << "\t" << match[2] << "\t";
       ++iter;
     }
-    if (std::regex_search(line_data, match, entry_end))
+    if (std::regex_search(line_data, match, entry_end)) {
       std::cout << std::endl;
-    i++;
+      i++;
+    }
   }
 
   dict_file.close();
