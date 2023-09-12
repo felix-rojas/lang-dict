@@ -1,7 +1,9 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <regex>
+#include <stdexcept>
 #include <string>
 
 const std::regex entry("<entry form=\"([^\"]*)\"");
@@ -15,7 +17,7 @@ std::ifstream loadFile(std::string filepath) {
   // Load xml file
   std::ifstream dict_file(filepath);
   if (!dict_file) {
-    std::cerr << "File could not be loaded" << std::endl;
+    throw std::runtime_error("File could not be loaded or doesnt exist.");
   }
   return dict_file;
 }
@@ -37,14 +39,16 @@ int main(int argc, char *argv[]) {
       std::smatch match; // generate a string match type to store results
       // regex_search is a O(n) operation on each processed line
       // it processes the regex expression using Thompsons algorithm
-      if (std::regex_search(line_data, match, entry) && match.size() > 1) {
+      if (std::regex_search(line_data, match, entry)) {
         std::cout << match[1] << "\t";
       }
 
       // Loop through the matches and extract the content between tags
       while (iter != end) {
         std::smatch match = *iter;
-        std::cout << match[1] << "\t" << match[2] << "\t";
+        if (match[1] == "gloss") {
+          std::cout << match[2] << "\t";
+        }
         ++iter;
       }
 
