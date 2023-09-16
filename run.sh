@@ -1,1 +1,1 @@
-g++ main.cpp -o a && ./a >output.tsv
+g++ main.cpp -o a && ./a d > output.tsv
