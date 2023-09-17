@@ -63,6 +63,7 @@ struct Definition {
 // diacritic words have a higher ascii value
 
 // Perform binary search
+// log time to search for word
 int findWord(const std::vector<Word> &wordVector, const std::string &target) {
     int left = 0;
     int right = wordVector.size() - 1;
@@ -100,6 +101,7 @@ std::string searchDefinition(int desiredRowNumber) {
   if (currentRowNumber != desiredRowNumber) {
     return "Not found";
   }
+  return "Not found";
 }
 
 int main(int argc, char *argv[]) {
@@ -112,6 +114,7 @@ int main(int argc, char *argv[]) {
     string temp;
     auto dict_file = loadFile(filepath);
     ofstream file("dict.tsv");
+    ofstream word_examples("words.txt");
 
     // no parameters
     // getline has linear time O(n)
@@ -143,6 +146,11 @@ int main(int argc, char *argv[]) {
     sort(dictionary.begin(), dictionary.end(), compareWord);
     std::string input;
     cout << "Dictionary sorted. Type a word to search:" << endl;
+    
+    for (int i = 0; i < dictionary.size(); i++) {
+      word_examples << dictionary[i].word << endl;
+    }
+    
     cin >> input;
 
     int word_index = findWord(dictionary, input);

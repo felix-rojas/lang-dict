@@ -13,4 +13,13 @@ As of now, this program uses regex expressions to parse the opening and closing 
 The included 7z file is the compressed form of the xml file, which is quite large for versioning. I have decided to add only the compressed file for backup purposes as it will not change. 
 With that in mind however, be careful when extracting the 7z because it is *300 MB heavy*.
 
+## Steps
+
+1. Run run.sh `./run.sh`. This will: 
+    1. Compile the program.
+    2. Run the program using the default parameters.
+    3. Creates a file of definitions `dict.tsv` and sample words `words.txt`
+2. Type any word from `words.txt` and it will return its definition and exit.
+
+## 
 
