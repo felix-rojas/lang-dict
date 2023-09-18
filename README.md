@@ -1,7 +1,7 @@
 # lang-dict
 
 This is a small project to parse an xml french dictionary file provided by L’Université Toulouse - Jean Jaurès (UT2J)
-The dictionary file was created by (Franck Sajous) [sajous@univ-tlse2.fr] and is available (here) [http://redac.univ-tlse2.fr/lexiques/wiktionaryx.html] for download.
+The dictionary file was created by Franck Sajous sajous@univ-tlse2.fr and is available here http://redac.univ-tlse2.fr/lexiques/wiktionaryx.html for download.
 
 ## Objective
 
@@ -21,5 +21,11 @@ With that in mind however, be careful when extracting the 7z because it is *300 
     3. Creates a file of definitions `dict.tsv` and sample words `words.txt`
 2. Type any word from `words.txt` and it will return its definition and exit.
 
-## 
+OR once youve run `./run.sh`, simply type `./a [number of entries] [word to look for]`
 
+Example: 
+`./a 1000 voler`
+
+## Video
+
+https://youtu.be/ADbiQ10RV3s
