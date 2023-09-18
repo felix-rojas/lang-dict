@@ -10,6 +10,7 @@
 #include <regex>
 #include <stdexcept>
 #include <string>
+#include <sys/stat.h>
 #include <vector>
 
 using std::cin;
@@ -38,6 +39,12 @@ const string eg = "example";
 const string generated_dictionary = "dict.tsv";
 const string generated_words = "words.txt";
 
+// adapted from https://stackoverflow.com/a/12774387
+// checks if file exists and is accesible
+inline bool file_exist(const std::string &name) {
+  struct stat buffer;
+  return (stat(name.c_str(), &buffer) == 0);
+}
 
 inline ifstream loadFile(const string &filepath) {
   // Load xml file
@@ -60,12 +67,14 @@ struct Word {
 
 // bug: std library compares using ascii values
 // diacritic words have a higher ascii value
-inline bool compareWord(const Word &a, const Word &b) { return a.word < b.word; }
-
+inline bool compareWord(const Word &a, const Word &b) {
+  return a.word < b.word;
+}
 
 // Perform binary search
-// O log(n) 
-inline int findWord(const std::vector<Word> &wordVector, const std::string &target) {
+// O log(n)
+inline int findWord(const std::vector<Word> &wordVector,
+                    const std::string &target) {
   int left = 0;
   int right = wordVector.size() - 1;
 
@@ -111,6 +120,8 @@ inline ofstream file(generated_dictionary);
 inline vector<Word> filter_xml_data(int n = 100) {
   int i = 0;
   vector<Word> dictionary;
+  // runs are known before runtime
+  dictionary.reserve(n);
   string line_data;
   string temp;
   ifstream dict_file = loadFile(filepath);
@@ -150,7 +161,7 @@ inline void sort_dictionary(vector<Word> &dictionary) {
 
 // O(n)
 inline void dump_words_txt(const vector<Word> &dictionary,
-                    string filename = generated_words) {
+                           string filename = generated_words) {
   ofstream word_examples(filename);
   for (int i = 0; i < dictionary.size(); i++) {
     word_examples << dictionary[i].word << endl;
@@ -159,10 +170,10 @@ inline void dump_words_txt(const vector<Word> &dictionary,
 
 // O(log(n) + n)
 inline string search_definition_of(const vector<Word> &dictionary,
-                            const string input) {
+                                   const string input) {
   int word_index = findWord(dictionary, input);
   return searchDefinition(word_index);
 }
-}
+} // namespace fr_dict
 
 #endif

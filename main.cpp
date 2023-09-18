@@ -1,5 +1,7 @@
 #include "FR_DICT.h"
 
+#include <chrono>
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -9,14 +11,38 @@ int main(int argc, char *argv[]) {
     string user_input;
     cout << "Default run, 100 entries \n";
     int n = 100;
+
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
     vector<fr_dict::Word> dictionary = fr_dict::filter_xml_data(n);
+    end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+
+    cout << "Seconds to load dictionary: " << elapsed_seconds.count() << endl;
+
     // O(N·log(N)) comparisons, where N is std::distance(first, last)
     // in other words N = dictionary.size()
+    start = std::chrono::system_clock::now();
     fr_dict::sort_dictionary(dictionary);
+    end = std::chrono::system_clock::now();
+    elapsed_seconds = end - start;
+    cout << "Seconds to sort dictionary: " << elapsed_seconds.count() << endl;
+
+    start = std::chrono::system_clock::now();
     fr_dict::dump_words_txt(dictionary, fr_dict::generated_words);
+    end = std::chrono::system_clock::now();
+    elapsed_seconds = end - start;
+    cout << "Seconds to save dictionary: " << elapsed_seconds.count() << endl;
     cout << "Input a word to look for: " << endl;
     cin >> user_input;
+    // O(n) + O(n)
+    // looks for word in the vector and uses its index to linearly
+    // go through the definitions
+    start = std::chrono::system_clock::now();
     cout << fr_dict::search_definition_of(dictionary, user_input) << endl;
+    end = std::chrono::system_clock::now();
+    elapsed_seconds = end - start;
+    cout << "Seconds to search definition: " << elapsed_seconds.count() << endl;
     fr_dict::dict_file.close();
     return 0;
   } else if (argc >= 2) {
