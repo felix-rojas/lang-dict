@@ -107,7 +107,7 @@ inline ifstream dict_file = loadFile(filepath);
 // O(N)
 inline ofstream file(generated_dictionary);
 
-
+// O(n²)
 inline vector<Word> filter_xml_data(int n = 100) {
   int i = 0;
   vector<Word> dictionary;
@@ -148,6 +148,7 @@ inline void sort_dictionary(vector<Word> &dictionary) {
   sort(dictionary.begin(), dictionary.end(), compareWord);
 }
 
+// O(n)
 inline void dump_words_txt(const vector<Word> &dictionary,
                     string filename = generated_words) {
   ofstream word_examples(filename);
@@ -156,6 +157,7 @@ inline void dump_words_txt(const vector<Word> &dictionary,
   }
 }
 
+// O(log(n) + n)
 inline string search_definition_of(const vector<Word> &dictionary,
                             const string input) {
   int word_index = findWord(dictionary, input);
