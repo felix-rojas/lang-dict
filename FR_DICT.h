@@ -64,14 +64,13 @@ inline bool compareWord(const Word &a, const Word &b) { return a.word < b.word; 
 
 
 // Perform binary search
-// log time to search for word
+// O log(n) 
 inline int findWord(const std::vector<Word> &wordVector, const std::string &target) {
   int left = 0;
   int right = wordVector.size() - 1;
 
   while (left <= right) {
     int mid = left + (right - left) / 2;
-
     if (wordVector[mid].word == target) {
       return wordVector[mid].index; // Word found, return its index
     } else if (wordVector[mid].word < target) {
@@ -103,8 +102,11 @@ inline string searchDefinition(int desiredRowNumber) {
   return "Not found";
 }
 
+// O(N)
 inline ifstream dict_file = loadFile(filepath);
+// O(N)
 inline ofstream file(generated_dictionary);
+
 
 inline vector<Word> filter_xml_data(int n = 100) {
   int i = 0;
@@ -139,9 +141,10 @@ inline vector<Word> filter_xml_data(int n = 100) {
   return dictionary;
 }
 
+// IntroSort
+// O(N·log(N)) comparisons, where N is std::distance(first, last)
+// in other words N = dictionary.size()
 inline void sort_dictionary(vector<Word> &dictionary) {
-  // O(N·log(N)) comparisons, where N is std::distance(first, last)
-  // in other words N = dictionary.size()
   sort(dictionary.begin(), dictionary.end(), compareWord);
 }
 
