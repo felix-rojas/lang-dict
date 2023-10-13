@@ -8,9 +8,6 @@
 #include <string>
 #include <vector>
 
-
-#include "word.hpp"
-
 using std::regex;
 using std::sregex_iterator;
 using std::string;
@@ -18,12 +15,13 @@ using std::vector;
 
 class Preprocess {
 private:
-  const std::regex entry = regex("<entry[^>]* form=\"([^\"]+)\"", std::regex::optimize|std::regex::icase);
+  const std::regex entry = regex("<entry[^>]* form=\"([^\"]+)\"",
+                                 std::regex::optimize | std::regex::icase);
   const std::regex entry_end =
-      std::regex("<\\/entry>", std::regex::optimize|std::regex::icase);
+      std::regex("<\\/entry>", std::regex::optimize | std::regex::icase);
   // Define the regex pattern
   const std::regex pattern = std::regex(
-      "<([^>]+)>(.*?)<\\/\\1>", std::regex::optimize|std::regex::icase);
+      "<([^>]+)>(.*?)<\\/\\1>", std::regex::optimize | std::regex::icase);
 
   const std::filesystem::path filepath = "./wiktionaryXfr2010.xml";
   const std::string def = "gloss";
@@ -31,7 +29,6 @@ private:
   const std::string eg = "example";
   const std::filesystem::path generated_dictionary = "dict.tsv";
   const std::filesystem::path generated_words = "words.txt";
-  friend class fr_dict;
 
 public:
   // check if entries have been cached before
@@ -39,7 +36,6 @@ public:
     return std::filesystem::exists(generated_dictionary) &&
            std::filesystem::exists(generated_words);
   }
-
 
   // O(n²)
   void filter_xml_data(unsigned int entries) {
@@ -54,11 +50,7 @@ public:
       std::sregex_iterator iter(line_data.begin(), line_data.end(), entry);
       std::sregex_iterator iter2(line_data.begin(), line_data.end(), pattern);
 
-      for (auto it2 = iter2; it2 != sregex_iterator() && ((it2->str(1) == def));
-           ++it2) {
-        definitions << it2->str(2) << " ";
-      }
-      // save to dictionary in dynamic memory
+      // save words to file
       for (auto it = iter; it != sregex_iterator(); ++it) {
         if (i <= entries) {
           if (i != 0)
@@ -68,12 +60,19 @@ public:
           // another o(n)
           for (int chars = 0; chars < temp.length(); chars++)
             temp[chars] = tolower(temp[chars]);
-          std::cout << temp << std::endl;
           words << i << " " << temp << "\n";
           i++;
         }
       }
+      // save definitions to file
+      for (auto it2 = iter2; it2 != sregex_iterator() && ((it2->str(1) == def));
+           ++it2) {
+        definitions << it2->str(2) << " ";
+      }
     }
+    words.close();
+    definitions.close();
+    dict_file.close();
   }
 };
 

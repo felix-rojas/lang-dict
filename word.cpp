@@ -10,3 +10,7 @@ Word::Word(const std::string &w, const int &i) {
 bool Word::operator<(const Word &other) { return this->word < other.word; }
 
 bool Word::compareWord(const Word &a, const Word &b) { return a.word < b.word; }
+
+void Word::addDefinition(const std::string &w) {
+  this->definition.append(w);
+}

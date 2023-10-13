@@ -13,10 +13,10 @@ int main(int argc, char *argv[]) {
   std::chrono::time_point<std::chrono::system_clock> start, end;
   if (argc < 2) {
     string user_input;
-    cout << "Default run, 500 entries \n";
-    unsigned int n = 500;
+    cout << "Default run, 300 entries \n";
+    unsigned int n = 300;
     if (p.not_first_run()) {
-      std::cout << "Loading previous entries" << std::endl;
+      std::cout << "Loading previous "<< n << " entries" << std::endl;
     } else {
       start = std::chrono::system_clock::now();
       p.filter_xml_data(n);
