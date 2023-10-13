@@ -36,7 +36,8 @@ private:
 
 public:
   /**
-   * @brief check if the preprocessing has been ran before
+   * @brief check if the preprocessing has been ran before. 
+   * Complexity \f$O(n)\f$ .
    *
    * @return true it is NOT the first, files must NOT be generated
    * @return false it IS the first run and the files must be generated
@@ -47,11 +48,12 @@ public:
   }
 
   /**
-   * @brief filter the data using the predefined regex patterns. Dumps
-   * definitions and words to separate files
+   * @brief Filters data using the predefined regex patterns. Dumps
+   * definitions and words to separate files. 
+   * Complexity \f$O(n^2)\f$ .
+   * 
    *
-   * @param entries is the number of dictionary entries to acquire
-   * @complexity O(n²)
+   * @param entries is the number of dictionary    entries to acquire
    */
   void filter_xml_data(unsigned int entries) {
     unsigned int i = 0;
