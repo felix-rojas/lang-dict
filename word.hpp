@@ -1,0 +1,16 @@
+#ifndef WORD_H
+#define WORD_H
+
+#include <string>
+
+class Word {
+  public:
+  int index;
+  std::string word;
+  Word(const std::string &w, const int &i);
+  bool operator<(const Word &other);
+  bool compareWord(const Word &a, const Word &b);
+  friend class fr_dict;
+};
+
+#endif // WORD_H
