@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @brief Entry program file that takes arguments
+ */
+
 // #include "FR_DICT.h"
 #include "preprocess_xml.hpp"
 
@@ -7,6 +12,17 @@
 using std::cin;
 using std::cout;
 using std::endl;
+
+/**
+ * @brief The main entry point for the program.
+ *
+ * This function is the entry point for the program. It can take command-line arguments
+ * using argc and argv.
+ *
+ * @param argc The number of command-line arguments.
+ * @param argv An array of C-style strings containing the command-line arguments.
+ * @return Exit status of the program (0 for success).
+ */
 
 int main(int argc, char *argv[]) {
   class Preprocess p;

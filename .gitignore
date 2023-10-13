@@ -1,5 +1,6 @@
 wiktionaryXfr2010.xml
 a
+
 # Prerequisites
 *.d
 
@@ -32,3 +33,10 @@ a
 *.exe
 *.out
 *.app
+
+# Compiled documentation
+Doxyfile
+
+# Output from runs
+/out/*
+/docs/html/*

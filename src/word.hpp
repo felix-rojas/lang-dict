@@ -1,3 +1,8 @@
+/**
+ * @file word.hpp
+ * @brief Header file for the Word class
+ */
+
 #ifndef WORD_H
 #define WORD_H
 

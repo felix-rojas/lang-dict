@@ -13,6 +13,10 @@ using std::sregex_iterator;
 using std::string;
 using std::vector;
 
+/**
+ * @brief Class for preprocessing the XML data using optimized regex patterns
+ *
+ */
 class Preprocess {
 private:
   const std::regex entry = regex("<entry[^>]* form=\"([^\"]+)\"",
@@ -23,21 +27,32 @@ private:
   const std::regex pattern = std::regex(
       "<([^>]+)>(.*?)<\\/\\1>", std::regex::optimize | std::regex::icase);
 
-  const std::filesystem::path filepath = "./wiktionaryXfr2010.xml";
+  const std::filesystem::path filepath = "../res/wiktionaryXfr2010.xml";
   const std::string def = "gloss";
   const std::string etym = "etym";
   const std::string eg = "example";
-  const std::filesystem::path generated_dictionary = "dict.tsv";
-  const std::filesystem::path generated_words = "words.txt";
+  const std::filesystem::path generated_dictionary = "../out/dict.tsv";
+  const std::filesystem::path generated_words = "../out/words.txt";
 
 public:
-  // check if entries have been cached before
+  /**
+   * @brief check if the preprocessing has been ran before
+   *
+   * @return true it is NOT the first, files must NOT be generated
+   * @return false it IS the first run and the files must be generated
+   */
   bool not_first_run() {
     return std::filesystem::exists(generated_dictionary) &&
            std::filesystem::exists(generated_words);
   }
 
-  // O(n²)
+  /**
+   * @brief filter the data using the predefined regex patterns. Dumps
+   * definitions and words to separate files
+   *
+   * @param entries is the number of dictionary entries to acquire
+   * @complexity O(n²)
+   */
   void filter_xml_data(unsigned int entries) {
     unsigned int i = 0;
     std::string line_data;
