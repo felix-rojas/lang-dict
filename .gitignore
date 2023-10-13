@@ -34,9 +34,6 @@ a
 *.out
 *.app
 
-# Compiled documentation
-Doxyfile
-
 # Output from runs
 /out/*
 /docs/html/*
