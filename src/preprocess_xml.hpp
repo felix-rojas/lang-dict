@@ -27,17 +27,20 @@ private:
   const std::regex pattern = std::regex(
       "<([^>]+)>(.*?)<\\/\\1>", std::regex::optimize | std::regex::icase);
 
-  const std::filesystem::path filepath = "../res/wiktionaryXfr2010.xml";
   const std::string def = "gloss";
   const std::string etym = "etym";
   const std::string eg = "example";
+
+  friend class fr_dict;
+
+  const std::filesystem::path filepath = "../res/wiktionaryXfr2010.xml";
   const std::filesystem::path generated_dictionary = "../out/dict.tsv";
   const std::filesystem::path generated_words = "../out/words.txt";
 
 public:
   /**
-   * @brief check if the preprocessing has been ran before. 
-   * Complexity \f$O(n)\f$ .
+   * @brief check if the preprocessing has been ran before.
+   * Complexity \f$O(1)\f$ .
    *
    * @return true it is NOT the first, files must NOT be generated
    * @return false it IS the first run and the files must be generated
@@ -49,9 +52,9 @@ public:
 
   /**
    * @brief Filters data using the predefined regex patterns. Dumps
-   * definitions and words to separate files. 
+   * definitions and words to separate files.
    * Complexity \f$O(n^2)\f$ .
-   * 
+   *
    *
    * @param entries is the number of dictionary    entries to acquire
    */

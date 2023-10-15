@@ -6,18 +6,19 @@
 #ifndef WORD_H
 #define WORD_H
 
+#include <locale>
 #include <string>
+#include <vector>
+
 
 class Word {
 public:
-  int index;
+  unsigned int index;
   std::string word;
-  std::string definition;
-  Word(const std::string &w, const int &i);
+  Word();
+  Word(const unsigned int &, const std::string &);
   bool operator<(const Word &other);
-  bool compareWord(const Word &a, const Word &b);
-  void addDefinition(const std::string &w);
-  friend class fr_dict;
+  bool operator>(const Word &other);
 };
 
 #endif // WORD_H
