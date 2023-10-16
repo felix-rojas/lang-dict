@@ -1,57 +1,70 @@
-# lang-dict
+# Filtrador XML de entradas y búsqueda de datos de diccionario
 
-This is a small project to parse an xml french dictionary file provided by L’Université Toulouse - Jean Jaurès (UT2J)
-The dictionary file was created by Franck Sajous sajous@univ-tlse2.fr and is available here http://redac.univ-tlse2.fr/lexiques/wiktionaryx.html for download.
+## Respecto al archivo .7z
 
-## Objective
+El archivo comprimido es una pequeña fracción del archivo final. Este lo mantengo en el repositorio dado que no cambiará y es pequeño en comparación a su descomprimido de 300 MB aprox.
 
-To sort the file and its entries in different forms using basic data structures and algorithms.
-As of now, this program uses regex expressions to parse the opening and closing xml statements to dump them in a csv file for sorting.
+## Pasos
 
-## Regarding the 7z file
+1. Descomprima ../res/wiktionaryXfr2010.7z
+2. Corra run.sh `./run.sh` 
+    1. Compila.
+    2. Corre usando los parámetros default en main.
+    3. Crea el archivo de definiciones `dict.tsv` y sus palabras `words.txt`
 
-The included 7z file is the compressed form of the xml file, which is quite large for versioning. I have decided to add only the compressed file for backup purposes as it will not change. 
-With that in mind however, be careful when extracting the 7z because it is *300 MB heavy*.
+Una vez que haya usado `./run.sh`, escriba `./a [numero de entradas a procesar] [palabra a buscar]`
 
-## Steps
+Ejemplo:
 
-1. Run run.sh `./run.sh`. This will: 
-    1. Compile the program.
-    2. Run the program using the default parameters.
-    3. Creates a file of definitions `dict.tsv` and sample words `words.txt`
-2. Type any word from `words.txt` and it will return its definition and exit.
-
-OR once youve run `./run.sh`, simply type `./a [number of entries] [word to look for]`
-
-Example: 
 `./a 1000 voler`
 
-## Video
+Este es un pequeño proyecto para parsear un dump xml de un diccionario en francés provisto por L’Université Toulouse - Jean Jaurès (UT2J) y creado por Franck Sajous sajous@univ-tlse2.fr. 
+http://redac.univ-tlse2.fr/lexiques/wiktionaryx.html para descargar.
 
-https://youtu.be/ADbiQ10RV3s
+El programa filtra todas las entradas y adquiere las definiciones de cada una de las palabras conforme las va leyendo del archivo XML.
+
+## Documentación Doxygen
+
+En caso de así desearlo, puede generar la documentación completa de las clases y métodos utilizando el archivo Doxyfile. Utilice `doxygen Doxyfile` para generar una página HTML interactiva con la documentación.
+
+En caso de no desearlo, adjunto un resumen de las funciones y sus tiempos asintóticos en el pdf ./analysis.pdf.
+
+## Videos
+Entrega 1: https://youtu.be/ADbiQ10RV3s
+Entrega 2: 
 
 ## SICT0302B: Toma decisiones
+
 > Selecciona y usa una estructura lineal adecuada al problema
 
-Este problema requiere filtrar datos de manera rápida, por lo que uso expresiones regex para encontrar las tags XML y cargar el contenido para procesar la información contenida.
+Utilizo una hash table de strings para poder almacenar todos los datos "sin tener que organizarlos". 
 
-Utilizo un Vector, pues se requiere de una estructura que crezca de manera dinámica para determinar el número de elementos a cargar y las definiciones las cargo a un archivo para no tenerlas en memoria dinámica.
+> Selecciona un algoritmo de ordenamiento adecuado al problema
 
-Almaceno cadenas de texto de definiciones en un archivo para no llenar la memoria RAM, puesto que son miles de miles de entradas
+La función que me permite "ordenar" es a través de un hash simple del string para generar una llave numérica de acceso. Dado que son palabras, la comparación de cadenas y el hash de las mismas es dependiente de su longitud.
 
+Sacrifico el ordenamiento por un acceso O(n) donde n es el tamaño de la cadena a buscar.
+
+> Usa un árbol adecuado para resolver un problema
 
 ## SICT0301B: Evalúa los componentes
+
 > Presenta Casos de Prueba correctos y completos para todas las funciones y procedimientos del programa
 
-El programa genera una lista de todas las palabras disponibles a definir y el script por default `run.sh` genera la lista de palabras y definiciones `dict.tsv` & `words.txt`.
+> Hace un análisis de complejidad correcto y completo para todo el programa y sus componentes
 
-El programa acepta argumentos una vez compilado, el número de palabras a filtrar y la palabra a buscar
-
-La corrida por default pide una palabra a buscar y filtra 100 palabras.
+Generé un resumen de la documentación en analysis.pdf.
 
 ## SICT0303B: Implementa acciones científicas
+
 > Implementa mecanismos para consultar información de las estructuras correctos y útiles dentro de un programa.
 
-- Uso de regex para filtrar palabras con ayuda de la librería std para reducción de autómatas
-- Uso de array dinámico (vector) para guardar las palabras a buscar 
-- Estructuración de definiciones con índices para disminuir tiempos de búsqueda en el archivo
+El programa tiene la opción de buscar palabras y definiciones por nombre. Existen 2 opciones de consola, sin argumentos (se cargan 300 datos). 2 argumentos, donde el primero es el número de entradas a pre-procesar y el segundo es la palabra a buscar.
+
+> Implementa mecanismos de lectura de archivos correctos y útiles dentro de un programa.
+
+Todas las palabras se almacenan en words.txt y sus definiciones correspondientes en dict.tsv
+
+> Implementa mecanismos de escritura de archivos correctos y útiles dentro de un programa. 
+
+El archivo xml nunca se abre y mientras existan los archivos previos, no se vuelve a realizar el pre-procesado de datos, cargándolos directamente a la memoria. 
