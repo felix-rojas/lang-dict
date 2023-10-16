@@ -56,7 +56,7 @@ public:
    * Complexity \f$O(n^2)\f$ .
    *
    *
-   * @param entries is the number of dictionary    entries to acquire
+   * @param entries is the number of dictionary entries to acquire
    */
   void filter_xml_data(unsigned int entries) {
     unsigned int i = 0;

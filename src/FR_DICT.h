@@ -17,7 +17,6 @@
 #include "hash_table.cpp"
 #include "preprocess_xml.hpp"
 
-using std::cin;
 using std::cout;
 using std::endl;
 using std::ifstream;
@@ -32,7 +31,7 @@ class fr_dict {
 private:
   Preprocess prep;
   unsigned int number_of_words;
-  HashTable *hash_dictionary;
+  HashTable *hash_dictionary = new HashTable();
 
 public:
   /**
@@ -42,8 +41,15 @@ public:
    * @param number_of_entries
    */
   fr_dict(unsigned int number_of_entries) {
-    hash_dictionary = new HashTable();
     number_of_words = number_of_entries;
+  }
+  /**
+   * @brief Destroy the fr dict object
+   *
+   */
+  ~fr_dict() {
+    delete hash_dictionary;
+    number_of_words = 0;
   }
   /**
    * @brief Performs binary search to find the target word in Complexity
@@ -84,6 +90,10 @@ public:
     return "Not found";
   }
 
+/**
+ * @brief Loads the words into the hash_dictionary in \f$O(N)\f$ time.
+ * 
+ */
   void load_dictionary() {
     std::ifstream file(prep.generated_words); // Open the file
     if (!file.is_open()) {
@@ -92,16 +102,30 @@ public:
     std::string line;
     while (std::getline(file, line)) {
       int pos = line.find(' ');
-      std::string word = line.substr(pos);
-      Item *item = new Item(word);
-      hash_dictionary->insert(item);
+      std::string word = line.substr(pos + 1);
+      hash_dictionary->insert(word);
     }
   }
 
-  void print_dictionary() { hash_dictionary->PrintHashTable(); }
+  /**
+   * @brief Prints the hash dictionary in \f$O(N)\f$
+   *
+   */
+  void print_dictionary() { hash_dictionary->print_hash_table(); }
 
+  /**
+   * @brief Checks if it is the first run. \f$O(1)\f$
+   *
+   * @return true if it is the first run
+   * @return false if it isnt the first run
+   */
   bool first_run() { return prep.not_first_run(); }
 
+  /**
+   * @brief Filters the selecteed amount of entries in the xml file. \f$O(N^2)\f$
+   *
+   * @param entries words to be processed
+   */
   void process_xml(unsigned int entries) { prep.filter_xml_data(entries); }
 }; // class fr_dict
 
