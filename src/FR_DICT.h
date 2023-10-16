@@ -57,11 +57,13 @@ public:
    */
 
   /**
-   * @brief Performs binary search to find the target word in Complexity
-   * \f$O(N)\f$ .
+   * @brief Performs search to find the target word in Complexity
+   * \f$O(N)\f$ because it needs to hash the target string first, where N is the
+   * size of the string.
    *
    * @param target Word to look for
    * @return int Index of the target word
+   * @see HashTable::search();
    */
   std::string find_word(const std::string &target) {
     return hash_dictionary->search(target);
@@ -96,7 +98,8 @@ public:
   }
 
   /**
-   * @brief Loads the words into the hash_dictionary in \f$O(N)\f$ time.
+   * @brief Loads the words into the hash_dictionary in \f$O(N)\f$ time since it
+   * goes line by line.
    *
    */
   void load_dictionary() {
@@ -114,7 +117,7 @@ public:
 
   /**
    * @brief Prints the hash dictionary in \f$O(N)\f$
-   *
+   * @see HashTable::print_hash_table();
    */
   void print_dictionary() { hash_dictionary->print_hash_table(); }
 
@@ -123,14 +126,16 @@ public:
    *
    * @return true if it is the first run
    * @return false if it isnt the first run
+   * @see Preprocess::not_first_run();
    */
   bool first_run() { return prep.not_first_run(); }
 
   /**
    * @brief Filters the selecteed amount of entries in the xml file.
-   * \f$O(N^2)\f$
+   * \f$O(N^2)\f$.
    *
    * @param entries words to be processed
+   * @see Preprocess::filter_xml_data();
    */
   void process_xml(unsigned int entries) { prep.filter_xml_data(entries); }
 
