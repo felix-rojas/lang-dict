@@ -4,6 +4,7 @@
  */
 
 #include "FR_DICT.h"
+#include "hash_table.cpp"
 #include "preprocess_xml.hpp"
 #include "word.cpp"
 #include "word.hpp"
@@ -52,6 +53,15 @@ int main(int argc, char *argv[]) {
     elapsed_seconds = end - start;
     cout << "Seconds to store dictionary in heap: " << elapsed_seconds.count()
          << endl;
+    p.print_dictionary();
+
+    start = std::chrono::system_clock::now();
+    std::string test = p.find_word("homme");
+    end = std::chrono::system_clock::now();
+    elapsed_seconds = end - start;
+    cout << "Found: " << test << " in ";
+    cout << elapsed_seconds.count() << "seconds" << endl;
+    /*
     // O(N·log(N)) comparisons, where N is std::distance(first, last)
     // in other words N = dictionary.size()
     start = std::chrono::system_clock::now();
@@ -61,7 +71,6 @@ int main(int argc, char *argv[]) {
     cout << "Seconds to sort dictionary: " << elapsed_seconds.count() << endl;
 
     p.print_dictionary();
-    /*
         start = std::chrono::system_clock::now();
         fr_dict::dump_words_txt(dictionary, fr_dict::generated_words);
         end = std::chrono::system_clock::now();
