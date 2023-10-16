@@ -21,10 +21,15 @@ class HashTable {
   int table_len;
 
 public:
-/**
- * @brief Construct a new Hash Table object, allocate item positions. \f$O(N)\f$
- * 
- */
+  /** @addtogroup functions_group
+   *
+   *  @{
+   */
+  /**
+   * @brief Construct a new Hash Table object, allocate item positions.
+   * \f$O(N)\f$
+   *
+   */
   HashTable() {
     table_len = SIZE;
     number_items = 0;
@@ -59,8 +64,9 @@ public:
   }
 
   /**
-   * @brief Linear probing to insert value. Worst case is \f$O(N)\f$ for the last
-   * value if the keys happen to be poisoned (they are generated sequentially). 
+   * @brief Linear probing to insert value. Worst case is \f$O(N)\f$ for the
+   * last value if the keys happen to be poisoned (they are generated
+   * sequentially).
    *
    * @param str
    */
@@ -79,7 +85,8 @@ public:
   }
 
   /**
-   * @brief Searches in \f$O(N)\f$ time where N is the length of the str to hash.
+   * @brief Searches in \f$O(N)\f$ time where N is the length of the str to
+   * hash.
    *
    * @param str String to hash and look for
    * @return std::string
@@ -98,10 +105,10 @@ public:
     return "NOT FOUND";
   }
 
-/**
- * @brief Prints every location with a value in it. \f$O(N)\f$.
- * 
- */
+  /**
+   * @brief Prints every location with a value in it. \f$O(N)\f$.
+   *
+   */
   void print_hash_table() {
     for (int i = 0; i < SIZE; i++) {
       std::cout << i << " ";
@@ -110,4 +117,5 @@ public:
       }
     }
   }
+  /** @} */ // end of functions_group
 };

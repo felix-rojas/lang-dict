@@ -51,6 +51,11 @@ public:
     delete hash_dictionary;
     number_of_words = 0;
   }
+  /** @defgroup functions_group All functions
+   *  This is the functions group with its asymptotic analysis
+   *  @{
+   */
+
   /**
    * @brief Performs binary search to find the target word in Complexity
    * \f$O(N)\f$ .
@@ -90,10 +95,10 @@ public:
     return "Not found";
   }
 
-/**
- * @brief Loads the words into the hash_dictionary in \f$O(N)\f$ time.
- * 
- */
+  /**
+   * @brief Loads the words into the hash_dictionary in \f$O(N)\f$ time.
+   *
+   */
   void load_dictionary() {
     std::ifstream file(prep.generated_words); // Open the file
     if (!file.is_open()) {
@@ -122,11 +127,14 @@ public:
   bool first_run() { return prep.not_first_run(); }
 
   /**
-   * @brief Filters the selecteed amount of entries in the xml file. \f$O(N^2)\f$
+   * @brief Filters the selecteed amount of entries in the xml file.
+   * \f$O(N^2)\f$
    *
    * @param entries words to be processed
    */
   void process_xml(unsigned int entries) { prep.filter_xml_data(entries); }
-}; // class fr_dict
+
+  /** @} */ // end of functions_group
+};          // class fr_dict
 
 #endif

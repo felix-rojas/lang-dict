@@ -38,6 +38,11 @@ private:
   const std::filesystem::path generated_words = "../out/words.txt";
 
 public:
+  /** @addtogroup functions_group
+   *
+   *  @{
+   */
+
   /**
    * @brief check if the preprocessing has been ran before.
    * Complexity \f$O(1)\f$ .
@@ -94,6 +99,8 @@ public:
     definitions.close();
     dict_file.close();
   }
+
+  /** @} */ // end of functions_group
 };
 
 #endif // PREPROCESS_XML
