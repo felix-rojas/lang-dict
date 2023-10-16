@@ -9,11 +9,10 @@ private:
 
 public:
   Item() { set_data(""); }
-  ~Item() { data.clear(); }
   Item(const std::string &d) { set_data(d); }
   std::string get_data() { return data; }
   int get_line() { return line_number; }
-  void set_data(std::string data) { this->data = data; }
+  void set_data(std::string str_data) { this->data = str_data; }
   void set_line(int line) { this->line_number = line; }
 };
 
@@ -57,7 +56,7 @@ public:
   int hash_function(const std::string &str) {
     int primaryNumber = SIZE;
     unsigned long hashValue = 0;
-    for (int i = 0; i < str.length(); i++) {
+    for (unsigned int i = 0; i < str.length(); i++) {
       hashValue = primaryNumber * hashValue + str.at(i);
     }
     if (hashValue < 0)

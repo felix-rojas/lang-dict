@@ -83,7 +83,7 @@ public:
           // word is stored in temp
           temp = it->str(1);
           // another o(n)
-          for (int chars = 0; chars < temp.length(); chars++)
+          for (unsigned int chars = 0; chars < temp.length(); chars++)
             temp[chars] = tolower(temp[chars]);
           words << i << " " << temp << "\n";
           i++;
