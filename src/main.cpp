@@ -6,8 +6,7 @@
 #include "FR_DICT.h"
 #include "hash_table.cpp"
 #include "preprocess_xml.hpp"
-#include "word.cpp"
-#include "word.hpp"
+
 
 #include <algorithm>
 #include <chrono>
