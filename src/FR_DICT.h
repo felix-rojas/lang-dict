@@ -65,7 +65,7 @@ public:
    * @return int Index of the target word
    * @see HashTable::search();
    */
-  std::string find_word(const std::string &target) {
+  int find_word(const std::string &target) {
     return hash_dictionary->search(target);
   }
 
@@ -111,7 +111,8 @@ public:
     while (std::getline(file, line)) {
       int pos = line.find(' ');
       std::string word = line.substr(pos + 1);
-      hash_dictionary->insert(word);
+      std::string line_placement = line.substr(0,pos);
+      hash_dictionary->insert(word,std::stoi(line_placement));
     }
   }
 

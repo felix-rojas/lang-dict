@@ -51,30 +51,32 @@ int main(int argc, char *argv[]) {
          << endl;
 
     start = std::chrono::system_clock::now();
-    std::string test = p.find_word("hongrois");
+    std::string target = "lire";
+    int test = p.find_word(target);
     end = std::chrono::system_clock::now();
     elapsed_seconds = end - start;
-    cout << "Found: " << test << " in ";
+    cout << "Found: " << target << " in line " << test << " in ";
     cout << elapsed_seconds.count() << "seconds" << endl;
 
-    // p.print_dictionary();
+    p.print_dictionary();
 
     start = std::chrono::system_clock::now();
-    cout << p.search_definition(stoi(test)) << endl;
+    cout << p.search_definition(test) << endl;
     end = std::chrono::system_clock::now();
     elapsed_seconds = end - start;
     cout << "Seconds to search definition: " << elapsed_seconds.count() << endl;
     return 0;
-  } else if (argc >= 2) {
-    cout << "You chose to process: " << argv[1] << " definitions" << endl;
-    cout << "Looking for the word: " << argv[2] << endl;
-    string n = argv[1];
-    string user_input = argv[2];
-    fr_dict p(stoi(n));
-    p.load_dictionary();
-    int res = stoi(p.find_word(user_input));
-    cout << p.search_definition(res) << endl;
-    return 0;
+
+  // } else if (argc >= 2) {
+  //   cout << "You chose to process: " << argv[1] << " definitions" << endl;
+  //   cout << "Looking for the word: " << argv[2] << endl;
+  //   string n = argv[1];
+  //   string user_input = argv[2];
+  //   fr_dict p(stoi(n));
+  //   p.load_dictionary();
+  //   int res = stoi(p.find_word(user_input));
+  //   cout << p.search_definition(res) << endl;
+  //   return 0;
   }
   return 0;
 }
