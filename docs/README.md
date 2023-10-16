@@ -30,8 +30,9 @@ En caso de así desearlo, puede generar la documentación completa de las clases
 En caso de no desearlo, adjunto un resumen de las funciones y sus tiempos asintóticos en el pdf ./analysis.pdf.
 
 ## Videos
+
 Entrega 1: https://youtu.be/ADbiQ10RV3s
-Entrega 2: 
+Entrega 2: https://youtu.be/6tDQzDSQUdM
 
 ## SICT0302B: Toma decisiones
 

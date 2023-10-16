@@ -91,7 +91,7 @@ public:
     return line;
     file.close(); // Close the file
 
-    if (current_row_number != desired_row_number) {
+    if (current_row_number != desired_row_number || desired_row_number < 0) {
       return "Not found";
     }
     return "Not found";
