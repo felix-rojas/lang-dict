@@ -31,7 +31,7 @@ class fr_dict {
 private:
   Preprocess prep;
   unsigned int number_of_words;
-  HashTable *hash_dictionary = new HashTable();
+  HashTable hash_dictionary = HashTable();
 
 public:
   /**
@@ -48,7 +48,6 @@ public:
    *
    */
   ~fr_dict() {
-    delete hash_dictionary;
     number_of_words = 0;
   }
   /** @defgroup functions_group All functions
@@ -66,7 +65,7 @@ public:
    * @see HashTable::search();
    */
   int find_word(const std::string &target) {
-    return hash_dictionary->search(target);
+    return hash_dictionary.search(target);
   }
 
   /**
@@ -112,7 +111,7 @@ public:
       int pos = line.find(' ');
       std::string word = line.substr(pos + 1);
       std::string line_placement = line.substr(0,pos);
-      hash_dictionary->insert(word,std::stoi(line_placement));
+      hash_dictionary.insert(word,std::stoi(line_placement));
     }
   }
 
@@ -120,7 +119,7 @@ public:
    * @brief Prints the hash dictionary in \f$O(N)\f$
    * @see HashTable::print_hash_table();
    */
-  void print_dictionary() { hash_dictionary->print_hash_table(); }
+  void print_dictionary() { hash_dictionary.print_hash_table(); }
 
   /**
    * @brief Checks if it is the first run. \f$O(1)\f$
