@@ -1,0 +1,1 @@
+g++ -g -Wall -pedantic -std=c++17 test.cpp -o a && valgrind --leak-check=yes ./a

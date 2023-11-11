@@ -1,0 +1,737 @@
+fex@felix:/mnt/c/Users/flixg/repos/lang-dict/src$ ./test_run.sh
+==792== Memcheck, a memory error detector
+==792== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==792== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==792== Command: ./a
+==792==
+Default run, 300 entries
+--------------------------------------------------------------------------
+--------------- fr_dict initialization ----------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------- XML pre-processing test ----------------
+--------------------------------------------------------------------------
+Seconds to process the xml file: 29.679
+--------------------------------------------------------------------------
+--------------- Dictionary loading test ----------------
+--------------------------------------------------------------------------
+Seconds to store dictionary in heap: 0.0397075
+--------------------------------------------------------------------------
+--------------- Dictionary file-loading test ----------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Loading previous 300 entries
+Seconds to store pre-existing dictionary: 0.0312806
+--------------------------------------------------------------------------
+--------------- Dictionary search test for existing words ----------------
+--------------------------------------------------------------------------
+Found: accueil in line 0 in 0.00160524 seconds
+Found: dictionnaire in line 1 in 0.000159649 seconds
+Found: lire in line 2 in 1.4157e-05 seconds
+Found: encyclopédie in line 3 in 1.613e-05 seconds
+Found: manga in line 4 in 1.4498e-05 seconds
+Found: ouvrage in line 5 in 0.000398095 seconds
+Found: siège in line 6 in 2.8504e-05 seconds
+Found: chaise in line 7 in 3.225e-05 seconds
+Found: fauteuil in line 8 in 9.1472e-05 seconds
+Found: meuble in line 9 in 3.2371e-05 seconds
+Found: mardi in line 10 in 2.2302e-05 seconds
+Found: lundi in line 11 in 2.7972e-05 seconds
+Found: semaine in line 12 in 4.7499e-05 seconds
+Found: militaire in line 13 in 1.7123e-05 seconds
+Found: suis in line 14 in 1.6421e-05 seconds
+Found: barbe à papa in line 15 in 1.8875e-05 seconds
+Found: manchot in line 16 in 1.7052e-05 seconds
+Found: pingouin in line 17 in 1.7503e-05 seconds
+Found: mercredi in line 18 in 1.7843e-05 seconds
+Found: bande dessinée in line 19 in 1.9326e-05 seconds
+Found: oiseau in line 20 in 1.7823e-05 seconds
+Found: allemand in line 21 in 1.7913e-05 seconds
+Found: allemande in line 22 in 1.7993e-05 seconds
+Found: allemands in line 23 in 1.8154e-05 seconds
+Found: jeudi in line 24 in 3.5957e-05 seconds
+Found: vendredi in line 25 in 1.7874e-05 seconds
+Found: ailé in line 26 in 1.7393e-05 seconds
+Found: voler in line 27 in 1.9927e-05 seconds
+Found: ovipare in line 28 in 5.0304e-05 seconds
+Found: poisson in line 29 in 2.4466e-05 seconds
+Found: travail in line 30 in 3.5015e-05 seconds
+Found: armée in line 31 in 7.0282e-05 seconds
+Found: nouveau in line 32 in 2.3935e-05 seconds
+Found: pinyin in line 33 in 4.9543e-05 seconds
+Found: sinogramme in line 34 in 1.6881e-05 seconds
+Found: kanji in line 35 in 6.7346e-05 seconds
+Found: chair à canon in line 36 in 1.7463e-05 seconds
+Found: jour in line 37 in 4.285e-05 seconds
+Found: groupe in line 38 in 8.538e-05 seconds
+Found: école in line 39 in 1.8294e-05 seconds
+Found: cd-rom in line 40 in 6.7617e-05 seconds
+Found: photographie in line 41 in 1.7253e-05 seconds
+Found: ordinateur in line 42 in 1.7052e-05 seconds
+Found: janvier in line 43 in 5.5324e-05 seconds
+Found: année in line 44 in 9.7522e-05 seconds
+Found: février in line 45 in 2.5929e-05 seconds
+Found: mars in line 46 in 6.7977e-05 seconds
+Found: avril in line 47 in 9.1722e-05 seconds
+Found: mai in line 48 in 0.000101971 seconds
+Found: juin in line 49 in 9.1883e-05 seconds
+Found: juillet in line 50 in 7.6052e-05 seconds
+Found: octobre in line 51 in 0.000151584 seconds
+Found: novembre in line 52 in 1.7252e-05 seconds
+Found: décembre in line 53 in 1.7653e-05 seconds
+Found: computer in line 54 in 1.7062e-05 seconds
+Found: anglais in line 55 in 8.2274e-05 seconds
+Found: lieu in line 56 in 8.1503e-05 seconds
+Found: physique in line 57 in 1.7082e-05 seconds
+Found: concertation in line 58 in 5.9992e-05 seconds
+Found: interrogation in line 59 in 1.8194e-05 seconds
+Found: homogène in line 60 in 2.4516e-05 seconds
+Found: imprimante in line 61 in 1.7633e-05 seconds
+Found: empirique in line 62 in 1.7323e-05 seconds
+Found: observation in line 63 in 2.134e-05 seconds
+Found: hypothèse in line 64 in 1.7012e-05 seconds
+Found: collaboration in line 65 in 1.7443e-05 seconds
+Found: samedi in line 66 in 0.000123021 seconds
+Found: dimanche in line 67 in 1.6641e-05 seconds
+Found: prendre in line 68 in 0.000139582 seconds
+Found: le in line 69 in 0.000135885 seconds
+Found: la in line 70 in 2.4876e-05 seconds
+Found: les in line 71 in 9.7001e-05 seconds
+Found: fin in line 72 in 0.000114244 seconds
+Found: abréviation in line 73 in 1.6711e-05 seconds
+Found: essai in line 74 in 0.00013324 seconds
+Found: chinois in line 75 in 0.000109735 seconds
+Found: procrastiner in line 76 in 1.6441e-05 seconds
+Found: espagnol in line 77 in 1.5699e-05 seconds
+Found: espagnols in line 78 in 1.597e-05 seconds
+Found: neuf in line 79 in 0.000143148 seconds
+Found: et in line 80 in 0.000108424 seconds
+Found: un in line 81 in 0.000141645 seconds
+Found: nord in line 82 in 0.000175518 seconds
+Found: sud in line 83 in 0.000179917 seconds
+Found: localisation in line 84 in 1.8074e-05 seconds
+Found: terre in line 85 in 0.000182342 seconds
+Found: dico in line 86 in 0.00015505 seconds
+Found: je in line 87 in 0.000185337 seconds
+Found: mot in line 88 in 0.000147516 seconds
+Found: une in line 89 in 0.000189906 seconds
+Found: aux in line 90 in 0.000138129 seconds
+Found: personne in line 91 in 6.1004e-05 seconds
+Found: green in line 92 in 0.000173155 seconds
+Found: plage in line 93 in 0.00031394 seconds
+Found: lès in line 94 in 0.000179486 seconds
+Found: nom commun in line 95 in 8.8756e-05 seconds
+Found: des in line 96 in 0.000217507 seconds
+Found: ou in line 97 in 0.000170509 seconds
+Found: cérémonie in line 98 in 1.6752e-05 seconds
+Found: toulouse in line 99 in 1.607e-05 seconds
+Found: on in line 100 in 0.000192361 seconds
+Found: o in line 101 in 0.000187341 seconds
+Found: arrivant in line 102 in 1.5819e-05 seconds
+Found: japonais in line 103 in 1.583e-05 seconds
+Found: consistant in line 104 in 1.628e-05 seconds
+Found: verbe in line 105 in 0.000247754 seconds
+Found: accueille in line 106 in 1.5979e-05 seconds
+Found: rare in line 107 in 0.000248516 seconds
+Found: travaux in line 108 in 0.000199664 seconds
+Found: anglaise in line 109 in 1.6e-05 seconds
+Found: anglaises in line 110 in 1.8304e-05 seconds
+Found: portugais in line 111 in 1.593e-05 seconds
+Found: ordre in line 112 in 0.000224841 seconds
+Found: deux in line 113 in 0.000176531 seconds
+Found: internet in line 114 in 1.6611e-05 seconds
+Found: courriel in line 115 in 2.0819e-05 seconds
+Found: pourriel in line 116 in 8.3166e-05 seconds
+Found: arriver in line 117 in 0.000212939 seconds
+Found: ensemble in line 118 in 2.0308e-05 seconds
+Found: nom in line 119 in 0.000244949 seconds
+Found: adjectif in line 120 in 1.7643e-05 seconds
+Found: alphabétique in line 121 in 1.8665e-05 seconds
+Found: du in line 122 in 0.000221696 seconds
+Found: traduction in line 123 in 7.1053e-05 seconds
+Found: sens in line 124 in 0.000245029 seconds
+Found: néerlandais in line 125 in 1.8825e-05 seconds
+Found: néerlandaises in line 126 in 1.8365e-05 seconds
+Found: néerlandais in line 125 in 1.8104e-05 seconds
+Found: livre in line 128 in 0.000275456 seconds
+Found: alphabet in line 129 in 2.0739e-05 seconds
+Found: habitant in line 130 in 2.0869e-05 seconds
+Found: a in line 131 in 0.000275597 seconds
+Found: texte in line 132 in 0.000299661 seconds
+Found: article in line 133 in 0.000364974 seconds
+Found: langue in line 134 in 0.000314489 seconds
+Found: élément in line 135 in 1.7563e-05 seconds
+Found: unitaire in line 136 in 2.143e-05 seconds
+Found: mobilier in line 137 in 1.7332e-05 seconds
+Found: étranger in line 138 in 2.0849e-05 seconds
+Found: chat in line 139 in 0.00024573 seconds
+Found: blog in line 140 in 0.000282961 seconds
+Found: sujet in line 141 in 0.000279974 seconds
+Found: au in line 142 in 0.000241833 seconds
+Found: b in line 143 in 0.000293139 seconds
+Found: corps in line 144 in 0.000254266 seconds
+Found: gouvernement in line 145 in 1.6921e-05 seconds
+Found: de in line 146 in 0.000291507 seconds
+Found: généralement in line 147 in 1.7302e-05 seconds
+Found: an in line 148 in 0.000269796 seconds
+Found: chose in line 149 in 0.000296045 seconds
+Found: région in line 150 in 0.000273543 seconds
+Found: nommer in line 151 in 0.00025609 seconds
+Found: animal in line 152 in 0.000279092 seconds
+Found: a priori in line 153 in 1.5479e-05 seconds
+Found: indéfini in line 154 in 1.563e-05 seconds
+Found: calculateur in line 155 in 0.000131887 seconds
+Found: terme in line 156 in 0.000300834 seconds
+Found: rédemption in line 157 in 1.7262e-05 seconds
+Found: tu in line 158 in 0.000244067 seconds
+Found: phrase in line 159 in 0.000286367 seconds
+Found: homonyme in line 160 in 1.4978e-05 seconds
+Found: aimer in line 161 in 0.000271809 seconds
+Found: uns in line 162 in 0.000249608 seconds
+Found: énergie in line 163 in 0.00024587 seconds
+Found: électrique in line 164 in 1.5499e-05 seconds
+Found: électricité in line 165 in 1.605e-05 seconds
+Found: chas in line 166 in 0.000276357 seconds
+Found: maçon in line 167 in 0.000318867 seconds
+Found: charpentier in line 168 in 1.6771e-05 seconds
+Found: jeu in line 169 in 0.00028795 seconds
+Found: gamin in line 170 in 0.000309219 seconds
+Found: avéré in line 171 in 1.9917e-05 seconds
+Found: gamine in line 172 in 0.000333585 seconds
+Found: mots in line 173 in 0.000297287 seconds
+Found: system in line 174 in 0.000314389 seconds
+Found: système in line 175 in 1.9397e-05 seconds
+Found: grec in line 176 in 0.000347531 seconds
+Found: singulier in line 177 in 0.000125685 seconds
+Found: à in line 178 in 1.5519e-05 seconds
+Found: irrégulier in line 179 in 1.6441e-05 seconds
+Found: l in line 180 in 0.000315562 seconds
+Found: il in line 181 in 0.000323746 seconds
+Found: c in line 182 in 0.000345557 seconds
+Found: d in line 183 in 0.000364883 seconds
+Found: e in line 184 in 0.000345588 seconds
+Found: mon in line 185 in 0.000323226 seconds
+Found: ton in line 186 in 0.000326742 seconds
+Found: son in line 187 in 0.000329797 seconds
+Found: astrométrie in line 188 in 1.9697e-05 seconds
+Found: astronomie in line 189 in 1.615e-05 seconds
+Found: entropie in line 190 in 2.2572e-05 seconds
+Found: ma in line 191 in 0.000345978 seconds
+Found: mes in line 192 in 0.000303368 seconds
+Found: ta in line 193 in 0.000375163 seconds
+Found: tes in line 194 in 0.000340528 seconds
+Found: sa in line 195 in 0.000378369 seconds
+Found: ses in line 196 in 0.000323296 seconds
+Found: cheval in line 197 in 0.000390682 seconds
+Found: chevaux in line 198 in 0.000304781 seconds
+Found: notre in line 199 in 0.000358782 seconds
+Found: nos in line 200 in 0.000345608 seconds
+Found: votre in line 201 in 0.00041095 seconds
+Found: vos in line 202 in 0.000441155 seconds
+Found: leur in line 203 in 0.00035245 seconds
+Found: pomme in line 204 in 0.000428042 seconds
+Found: pomme de terre in line 205 in 1.7472e-05 seconds
+Found: aucun in line 206 in 0.000419416 seconds
+Found: ouf in line 207 in 0.000476823 seconds
+Found: aïe in line 208 in 0.000478907 seconds
+Found: argot in line 209 in 0.000417102 seconds
+Found: slang in line 210 in 0.000431418 seconds
+Found: oh in line 211 in 0.000406692 seconds
+Found: aulx in line 212 in 0.000356598 seconds
+Found: homme in line 213 in 0.000400931 seconds
+Found: futur in line 214 in 0.000371416 seconds
+Found: bar in line 215 in 0.000387847 seconds
+Found: barre in line 216 in 0.000415218 seconds
+Found: italien in line 217 in 0.000385112 seconds
+Found: là in line 218 in 1.4547e-05 seconds
+Found: unes in line 219 in 0.000390001 seconds
+Found: ont in line 220 in 0.00038979 seconds
+Found: avoir in line 221 in 0.000394349 seconds
+Found: pluriel in line 222 in 0.000408234 seconds
+Found: marché in line 223 in 2.0368e-05 seconds
+Found: catalan in line 224 in 0.000404928 seconds
+Found: breton in line 225 in 0.000402304 seconds
+Found: utiliser in line 226 in 1.4197e-05 seconds
+Found: en in line 227 in 0.000414386 seconds
+Found: mandarin in line 228 in 1.4107e-05 seconds
+Found: relatif in line 229 in 0.00043758 seconds
+Found: pays in line 230 in 0.00044272 seconds
+Found: mois in line 231 in 0.000436648 seconds
+Found: synonyme in line 232 in 2.133e-05 seconds
+Found: latin in line 233 in 0.000444713 seconds
+Found: eau in line 234 in 0.000415168 seconds
+Found: but in line 235 in 0.000419035 seconds
+Found: elle in line 236 in 0.000465111 seconds
+Found: traduire in line 237 in 2.0498e-05 seconds
+Found: espéranto in line 238 in 1.4757e-05 seconds
+Found: éclairci in line 239 in 1.4467e-05 seconds
+Found: pas in line 240 in 0.000500918 seconds
+Found: quintal in line 241 in 0.000474118 seconds
+Found: nous in line 242 in 0.000454341 seconds
+Found: finir in line 243 in 0.000484658 seconds
+Found: bienvenue in line 244 in 7.0141e-05 seconds
+Found: éclaircie in line 245 in 1.5389e-05 seconds
+Found: auparavant in line 246 in 1.5338e-05 seconds
+Found: néanmoins in line 247 in 0.000159859 seconds
+Found: réseau in line 248 in 0.000454671 seconds
+Found: logiciel in line 249 in 1.7903e-05 seconds
+Found: voiture in line 250 in 0.00049659 seconds
+Found: enfant in line 251 in 0.000548888 seconds
+Found: dix in line 252 in 0.000499476 seconds
+Found: vingt in line 253 in 0.000500868 seconds
+Found: trente in line 254 in 0.000524213 seconds
+Found: quinze in line 255 in 0.000521347 seconds
+Found: blanc in line 256 in 0.000589053 seconds
+Found: rouge in line 257 in 0.000572923 seconds
+Found: jaune in line 258 in 0.000574025 seconds
+Found: hongrois in line 259 in 2.5838e-05 seconds
+Found: hongrie in line 260 in 0.000556813 seconds
+Found: cinq in line 261 in 0.000510366 seconds
+Found: lui in line 262 in 0.00051233 seconds
+Found: cardinal in line 263 in 0.000201578 seconds
+Found: ordinal in line 264 in 0.000582481 seconds
+Found: premier in line 265 in 0.000535994 seconds
+Found: lentement in line 266 in 1.603e-05 seconds
+Found: voire in line 267 in 0.000581249 seconds
+Found: dorénavant in line 268 in 1.633e-05 seconds
+Found: dopage in line 269 in 0.00058677 seconds
+Found: malveillant in line 270 in 1.6751e-05 seconds
+Found: malsain in line 271 in 0.000574877 seconds
+Found: pareil in line 272 in 0.000594734 seconds
+Found: fatwa in line 273 in 0.000636372 seconds
+Found: gestion in line 274 in 0.000528821 seconds
+Found: discipline in line 275 in 1.4898e-05 seconds
+Found: énoncer in line 276 in 0.000466764 seconds
+Found: fournir in line 277 in 0.000526155 seconds
+Found: apprivoiser in line 278 in 0.000278101 seconds
+Found: domestiquer in line 279 in 1.5269e-05 seconds
+Found: rendre in line 280 in 0.000605775 seconds
+Found: échange in line 281 in 0.000568225 seconds
+Found: extérieur in line 282 in 1.9317e-05 seconds
+Found: au-delà in line 283 in 0.000476102 seconds
+Found: seuil in line 284 in 0.000673481 seconds
+Found: maison in line 285 in 0.000600485 seconds
+Found: grand in line 286 in 0.000606496 seconds
+Found: chatteries in line 287 in 1.5739e-05 seconds
+Found: chaton in line 288 in 0.000587982 seconds
+Found: ronronner in line 289 in 1.4356e-05 seconds
+Found: foyer in line 290 in 0.000540673 seconds
+Found: feu in line 291 in 0.000568895 seconds
+Found: déploiement in line 292 in 1.8775e-05 seconds
+Found: acronyme in line 293 in 2.166e-05 seconds
+Found: sigle in line 294 in 0.000643556 seconds
+Found: programmation in line 295 in 0.000172403 seconds
+Found: contrepartie in line 296 in 1.7433e-05 seconds
+Found: opérateur in line 297 in 1.7293e-05 seconds
+Found: étendu in line 298 in 0.000294712 seconds
+Found: stocker in line 299 in 0.000628086 seconds
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+--------------- Search test for not available words ----------------
+--------------------------------------------------------------------------
+agua not found in 0.00105492 seconds
+sieaas not found in 0.000603791 seconds
+asldj not found in 0.000648495 seconds
+apdihanmkasldd not found in 1.2433e-05 seconds
+paisdowjfw not found in 0.00014937 seconds
+123 not found in 1.1242e-05 seconds
+landi not found in 0.000700112 seconds
+agua not found in 0.000754624 seconds
+sieaas not found in 0.000669163 seconds
+asldj not found in 0.00082217 seconds
+apdihanmkasldd not found in 2.2271e-05 seconds
+paisdowjfw not found in 0.000213089 seconds
+123 not found in 1.602e-05 seconds
+landi not found in 0.000701564 seconds
+agua not found in 0.000708988 seconds
+sieaas not found in 0.000619821 seconds
+asldj not found in 0.000665246 seconds
+apdihanmkasldd not found in 1.3475e-05 seconds
+paisdowjfw not found in 0.000190998 seconds
+123 not found in 1.2223e-05 seconds
+landi not found in 0.000732703 seconds
+agua not found in 0.000724647 seconds
+sieaas not found in 0.000655378 seconds
+asldj not found in 0.000698338 seconds
+apdihanmkasldd not found in 1.2724e-05 seconds
+paisdowjfw not found in 0.000155581 seconds
+123 not found in 1.1492e-05 seconds
+landi not found in 0.000690112 seconds
+agua not found in 0.000761847 seconds
+sieaas not found in 0.000776537 seconds
+asldj not found in 0.000674343 seconds
+apdihanmkasldd not found in 1.3074e-05 seconds
+paisdowjfw not found in 0.000156834 seconds
+123 not found in 1.1441e-05 seconds
+landi not found in 0.000689471 seconds
+agua not found in 0.000679193 seconds
+sieaas not found in 0.00060826 seconds
+asldj not found in 0.000628818 seconds
+apdihanmkasldd not found in 1.1812e-05 seconds
+paisdowjfw not found in 0.000143729 seconds
+123 not found in 1.068e-05 seconds
+landi not found in 0.000671608 seconds
+agua not found in 0.000703318 seconds
+sieaas not found in 0.000638206 seconds
+asldj not found in 0.000680725 seconds
+apdihanmkasldd not found in 1.3325e-05 seconds
+paisdowjfw not found in 0.000155281 seconds
+123 not found in 1.1602e-05 seconds
+landi not found in 0.000675275 seconds
+agua not found in 0.000716793 seconds
+sieaas not found in 0.000622797 seconds
+asldj not found in 0.000663503 seconds
+apdihanmkasldd not found in 1.3705e-05 seconds
+paisdowjfw not found in 0.000177813 seconds
+123 not found in 1.1722e-05 seconds
+landi not found in 0.000712505 seconds
+agua not found in 0.000781564 seconds
+sieaas not found in 0.000684041 seconds
+asldj not found in 0.000711353 seconds
+apdihanmkasldd not found in 1.3575e-05 seconds
+paisdowjfw not found in 0.00016543 seconds
+123 not found in 9.5109e-05 seconds
+landi not found in 0.000721272 seconds
+agua not found in 0.000697156 seconds
+sieaas not found in 0.000626013 seconds
+asldj not found in 0.000657672 seconds
+apdihanmkasldd not found in 1.2433e-05 seconds
+paisdowjfw not found in 0.000145182 seconds
+123 not found in 1.078e-05 seconds
+landi not found in 0.00065136 seconds
+agua not found in 0.000721131 seconds
+sieaas not found in 0.000650088 seconds
+asldj not found in 0.000670126 seconds
+apdihanmkasldd not found in 1.2714e-05 seconds
+paisdowjfw not found in 0.000154148 seconds
+123 not found in 1.1471e-05 seconds
+landi not found in 0.00070451 seconds
+agua not found in 0.000658544 seconds
+sieaas not found in 0.000602779 seconds
+asldj not found in 0.000627645 seconds
+apdihanmkasldd not found in 1.1712e-05 seconds
+paisdowjfw not found in 0.000142457 seconds
+123 not found in 1.059e-05 seconds
+landi not found in 0.000629209 seconds
+--------------------------------------------------------------------------
+----------------------- Printing dictionary ------------------------------
+--------------------------------------------------------------------------
+0 1 2 3 4 5 6 7 8 9 indéfini
+10 11 japonais
+12 internet
+13 habitant
+14 hongrois
+15 16 17 18 19 20 à
+21 22 23 anglaises
+24 déploiement
+25 imprimante
+26 27 28 29 éclaircie
+30 31 32 33 alphabétique
+34 système
+35 synonyme
+36 37 38 rédemption
+39 espagnols
+40 41 42 localisation
+43 44 dorénavant
+45 46 47 48 49 50 51 52 53 54 55 56 57 barbe à papa
+58 59 60 61 62 63 64 malveillant
+65 pomme de terre
+66 67 68 69 70 71 espéranto
+72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 procrastiner
+87 88 89 accueille
+90 91 92 93 94 95 96 97 manga
+98 chair à canon
+99 homogène
+100 la
+101 lire
+102 ouvrage
+103 siège
+104 chaise
+105 meuble
+106 mardi
+107 lundi
+108 accueil
+109 semaine
+110 jeudi
+111 ovipare
+112 poisson
+113 travail
+114 voler
+115 suis
+116 manchot
+117 oiseau
+118 armée
+119 nouveau
+120 fauteuil
+121 pinyin
+122 kanji
+123 jour
+124 groupe
+125 allemande
+126 cd-rom
+127 janvier
+128 année
+129 février
+130 mars
+131 avril
+132 mai
+133 juin
+134 juillet
+135 octobre
+136 anglais
+137 sinogramme
+138 lieu
+139 allemands
+140 concertation
+141 samedi
+142 prendre
+143 le
+144 les
+145 fin
+146 essai
+147 chinois
+148 neuf
+149 physique
+150 et
+151 un
+152 nord
+153 bande dessinée
+154 sud
+155 terre
+156 dico
+157 je
+158 pingouin
+159 mot
+160 une
+161 aux
+162 personne
+163 green
+164 plage
+165 lès
+166 nom commun
+167 des
+168 ou
+169 on
+170 o
+171 verbe
+172 rare
+173 travaux
+174 ordre
+175 deux
+176 pourriel
+177 arriver
+178 nom
+179 du
+180 traduction
+181 sens
+182 livre
+183 a
+184 texte
+185 article
+186 langue
+187 chat
+188 blog
+189 sujet
+190 interrogation
+191 observation
+192 au
+193 b
+194 corps
+195 de
+196 an
+197 chose
+198 région
+199 nommer
+200 animal
+201 calculateur
+202 terme
+203 tu
+204 phrase
+205 aimer
+206 uns
+207 énergie
+208 chas
+209 maçon
+210 jeu
+211 gamin
+212 gamine
+213 électrique
+214 mots
+215 system
+216 grec
+217 école
+218 singulier
+219 l
+220 il
+221 c
+222 d
+223 e
+224 mon
+225 ton
+226 son
+227 ma
+228 mes
+229 dimanche
+230 ensemble
+231 entropie
+232 ta
+233 hypothèse
+234 tes
+235 sa
+236 espagnol
+237 courriel
+238 ses
+239 néerlandaises
+240 cheval
+241 chevaux
+242 computer
+243 notre
+244 nos
+245 votre
+246 vos
+247 leur
+248 pomme
+249 aucun
+250 ouf
+251 aïe
+252 argot
+253 slang
+254 oh
+255 aulx
+256 homme
+257 futur
+258 bar
+259 barre
+260 italien
+261 photographie
+262 unes
+263 ont
+264 avoir
+265 novembre
+266 charpentier
+267 pluriel
+268 catalan
+269 mercredi
+270 breton
+271 en
+272 relatif
+273 pays
+274 mandarin
+275 mois
+276 latin
+277 eau
+278 mobilier
+279 étranger
+280 but
+281 elle
+282 pas
+283 quintal
+284 nous
+285 finir
+286 bienvenue
+287 néanmoins
+288 réseau
+289 voiture
+290 enfant
+291 dix
+292 vingt
+293 trente
+294 quinze
+295 blanc
+296 rouge
+297 jaune
+298 hongrie
+299 cinq
+300 lui
+301 astronomie
+302 cardinal
+303 ordinal
+304 premier
+305 vendredi
+306 voire
+307 dopage
+308 malsain
+309 pareil
+310 fatwa
+311 gestion
+312 énoncer
+313 fournir
+314 irrégulier
+315 apprivoiser
+316 rendre
+317 décembre
+318 échange
+319 au-delà
+320 seuil
+321 maison
+322 grand
+323 chaton
+324 lentement
+325 foyer
+326 feu
+327 sigle
+328 programmation
+329 étendu
+330 collaboration
+331 stocker
+332 333 encyclopédie
+334 335 336 337 338 339 340 341 cérémonie
+342 343 344 allemand
+345 anglaise
+346 adjectif
+347 acronyme
+348 349 a priori
+350 351 352 353 354 355 356 357 358 359 360 arrivant
+361 alphabet
+362 363 364 auparavant
+365 366 367 368 369 370 371 372 consistant
+373 empirique
+374 ordinateur
+375 376 377 378 379 380 381 382 domestiquer
+383 384 385 éclairci
+386 387 388 gouvernement
+389 logiciel
+390 391 392 393 électricité
+394 astrométrie
+395 396 élément
+397 398 399 400 401 402 403 404 là
+405 406 407 408 généralement
+409 410 411 412 413 ailé
+414 avéré
+415 marché
+416 417 toulouse
+418 unitaire
+419 traduire
+420 421 422 ronronner
+423 424 425 426 427 428 429 430 utiliser
+431 432 433 434 435 436 437 contrepartie
+438 439 440 441 442 443 444 445 446 opérateur
+447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 dictionnaire
+470 471 472 473 474 475 476 477 478 479 chatteries
+480 481 discipline
+482 483 néerlandais
+484 néerlandais
+485 militaire
+486 487 488 489 490 491 portugais
+492 493 494 495 496 497 homonyme
+498 abréviation
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+----------------------- Printing results ------------------------------
+--------------------------------------------------------------------------
+
+
+ALL TESTS SUCCESSFUL
+--------------------------------------------------------------------------
+
+==792==
+==792== HEAP SUMMARY:
+==792==     in use at exit: 0 bytes in 0 blocks
+==792==   total heap usage: 149,044 allocs, 149,044 frees, 29,850,770 bytes allocated
+==792==
+==792== All heap blocks were freed -- no leaks are possible
+==792==
+==792== For lists of detected and suppressed errors, rerun with: -s
+==792== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
