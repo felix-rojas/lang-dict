@@ -52,9 +52,14 @@ Sacrifico el ordenamiento por un acceso O(n) donde n es el tamaño de la cadena 
 
 > Presenta Casos de Prueba correctos y completos para todas las funciones y procedimientos del programa
 
+- Al correr el script test_run.sh se compila el programa para revisar leaks de memoria usando Valgrind.
+- En cada uno de los pasos para generar el diccionario se genera una flag para mostrar que se pudo realizar el proceso. 
+- Se hacen pruebas de definiciones existentes y no existentes una vez que está cargado el archivo
+- Al final de la ejecución se muestran los fallos de las pruebas 
+
 > Hace un análisis de complejidad correcto y completo para todo el programa y sus componentes
 
-Generé un resumen de la documentación en analysis.pdf.
+- Generé un resumen de la documentación en analysis.pdf.
 
 ## SICT0303B: Implementa acciones científicas
 
@@ -64,8 +69,9 @@ El programa tiene la opción de buscar palabras y definiciones por nombre. Exist
 
 > Implementa mecanismos de lectura de archivos correctos y útiles dentro de un programa.
 
-Todas las palabras se almacenan en words.txt y sus definiciones correspondientes en dict.tsv
+- Todas las palabras se almacenan en words.txt y sus definiciones correspondientes en dict.tsv
+- Filtrado de las entradas del archivo XML
 
 > Implementa mecanismos de escritura de archivos correctos y útiles dentro de un programa. 
 
-El archivo xml nunca se abre y mientras existan los archivos previos, no se vuelve a realizar el pre-procesado de datos, cargándolos directamente a la memoria. 
+- El archivo xml nunca se abre y mientras existan los archivos previos, no se vuelve a realizar el pre-procesado de datos, cargándolos directamente a la memoria. 
