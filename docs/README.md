@@ -33,6 +33,7 @@ En caso de no desearlo, adjunto un resumen de las funciones y sus tiempos asint√
 
 Entrega 1: https://youtu.be/ADbiQ10RV3s
 Entrega 2: https://youtu.be/6tDQzDSQUdM
+Entrega 3: https://youtu.be/8-SWUMifN2g
 
 ## SICT0302B: Toma decisiones
 
