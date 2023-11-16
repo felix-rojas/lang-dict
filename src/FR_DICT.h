@@ -1,5 +1,5 @@
-#ifndef FR_DICT_H
-#define FR_DICT_H
+#ifndef FR_DICT_H_
+#define FR_DICT_H_
 
 #include <algorithm>
 #include <cctype>
@@ -31,7 +31,7 @@ class fr_dict {
 private:
   Preprocess prep;
   unsigned int number_of_words;
-  HashTable hash_dictionary = HashTable();
+  HashTable hash_dictionary;
 
 public:
   /**
@@ -42,14 +42,13 @@ public:
    */
   fr_dict(unsigned int number_of_entries) {
     number_of_words = number_of_entries;
+    hash_dictionary = HashTable(number_of_entries);
   }
   /**
    * @brief Destroy the fr dict object
    *
    */
-  ~fr_dict() {
-    number_of_words = 0;
-  }
+  ~fr_dict() { number_of_words = 0; }
   /** @defgroup functions_group All functions
    *  This is the functions group with its asymptotic analysis
    *  @{
@@ -78,22 +77,31 @@ public:
    * file" if the file has been corrupted or the definition if it is found.
    */
   string search_definition(int desired_row_number) {
-    ifstream file(prep.generated_dictionary); // Open the file
-    if (!file.is_open()) {
-      return "Could not open the file.";
+    if (desired_row_number == -1)
+      return "Definition not found";
+    else {
+      ifstream file(prep.generated_dictionary); // Open the file
+      if (!file.is_open()) {
+        return "Could not open the file.";
+      }
+      string line;
+      int current_row_number = 0;
+      while (getline(file, line) && current_row_number != desired_row_number) {
+        current_row_number++;
+      }
+      file.close(); // Close the file
+      return line;
     }
-    string line;
-    int current_row_number = 0;
-    while (getline(file, line) && current_row_number != desired_row_number) {
-      current_row_number++;
-    }
-    return line;
-    file.close(); // Close the file
-
-    if (current_row_number != desired_row_number || desired_row_number < 0) {
-      return "Not found";
-    }
-    return "Not found";
+  }
+  /**
+   * @brief Looks for french available locales C++ of user
+   *
+   * @return true if it has a french locale, false if not
+   */
+  bool has_french_locale() {
+    std::locale l("");
+    std::string user_locale = l.name();
+    return user_locale.find("fr");
   }
 
   /**
@@ -108,10 +116,10 @@ public:
     }
     std::string line;
     while (std::getline(file, line)) {
-      int pos = line.find(' ');
+      long pos = line.find(' ');
       std::string word = line.substr(pos + 1);
-      std::string line_placement = line.substr(0,pos);
-      hash_dictionary.insert(word,std::stoi(line_placement));
+      std::string line_placement = line.substr(0, pos);
+      hash_dictionary.insert(word, std::stoi(line_placement));
     }
   }
 
@@ -120,6 +128,24 @@ public:
    * @see HashTable::print_hash_table();
    */
   void print_dictionary() { hash_dictionary.print_hash_table(); }
+
+  /**
+   * @brief Prints the hash dictionary in \f$O(N^2))\f$ time.
+   * Checks for user locale to print sorting warning.
+   * @see HashTable::.print_sorted_words();
+   */
+  void print_dictionary_sorted() {
+    std::locale l("");
+    std::string user_locale = l.name();
+    if (!has_french_locale()) {
+      cout << "Current environment doesn't have a french locale." << std::endl;
+      cout << "Words will be sorted according to locale: " << user_locale
+           << std::endl;
+      hash_dictionary.print_sorted_words(user_locale);
+    } else {
+      hash_dictionary.print_sorted_words(user_locale);
+    }
+  }
 
   /**
    * @brief Checks if it is the first run. \f$O(1)\f$
@@ -142,4 +168,4 @@ public:
   /** @} */ // end of functions_group
 };          // class fr_dict
 
-#endif
+#endif // FR_DICT_H_

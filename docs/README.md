@@ -45,7 +45,7 @@ Utilizo una hash table de strings para poder almacenar todos los datos "sin tene
 
 La función que me permite "ordenar" es a través de un hash simple del string para generar una llave numérica de acceso. Dado que son palabras, la comparación de cadenas y el hash de las mismas es dependiente de su longitud.
 
-Sacrifico el ordenamiento por un acceso O(n) donde n es el tamaño de la cadena a buscar.
+Sacrifico el ordenamiento por un acceso O(n) donde n es el tamaño de la cadena a buscar pues se procesa en la función hash. Dado que la función hash depende del tamaño del string es O(n), pero para accesar en tiempo O(1) pues es un array.
 
 > Usa un árbol adecuado para resolver un problema
 

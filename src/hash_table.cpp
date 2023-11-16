@@ -1,7 +1,25 @@
+#include <algorithm>
 #include <cstddef>
 #include <iostream>
+#include <locale>
 #include <ostream>
 #include <string>
+#include <vector>
+
+  /**
+   * @brief Auxiliary struct for french locale string comparator
+   *
+   * @return true if french word goes alphabetically first
+   */
+struct localeComparator {
+    std::locale loc;
+    const std::collate<char>& collate;
+    localeComparator(const std::locale& loc) : loc(loc), collate(std::use_facet<std::collate<char>>(loc)) {}
+    bool operator()(const std::string& s1, const std::string& s2) const {
+        return collate.compare(s1.data(), s1.data() + s1.size(), s2.data(), s2.data() + s2.size()) < 0;
+    }
+};
+
 
 class Item {
 private:
@@ -11,7 +29,10 @@ private:
 public:
   Item() { set_data(""); }
   Item(const std::string &d) { set_data(d); }
-  Item(const std::string &d, const int &line) { set_data(d); set_line(line); }
+  Item(const std::string &d, const int &line) {
+    set_data(d);
+    set_line(line);
+  }
   std::string get_data() { return data; }
   int get_line() { return line_number; }
   void set_data(std::string str_data) { this->data = str_data; }
@@ -23,12 +44,46 @@ class HashTable {
   Item hash_arr[SIZE];
   int number_items;
   int table_len;
-
-public:
   /** @addtogroup functions_group
    *
    *  @{
    */
+private:
+  int partition(std::vector<std::string> &vec, int low, int high) {
+    int i = low, j = high;
+    std::string pivot = vec[(low + high) / 2];
+
+    while (i <= j) {
+      while (vec[i] < pivot)
+        i++;
+      while (vec[j] > pivot)
+        j--;
+      if (i <= j) {
+        std::swap(vec[i], vec[j]);
+        i++;
+        j--;
+      }
+    }
+    return i;
+  }
+  /**
+   * @brief Quicksort for strings.
+   * Complexity is O(N^2) in the worst case,
+   * where the string pivot is either the largest or the smallest element.
+   * \f$O(N^2)\f$
+   * This sort was chosen because the average case requires \f$O(N log (N))\f$
+   * time
+   *
+   */
+  void quickSort(std::vector<std::string> &vec, int low, int high) {
+    if (low < high) {
+      int pivotIndex = partition(vec, low, high);
+      quickSort(vec, low, pivotIndex - 1);
+      quickSort(vec, pivotIndex, high);
+    }
+  }
+
+public:
   /**
    * @brief Construct a new Hash Table object, allocate item positions.
    * \f$O(N)\f$
@@ -46,20 +101,18 @@ public:
     }
   }
 
-  // ~HashTable() {
-  //   try {
-  //     for (int i = 0; i < table_len; i++) {
-  //       std::cout << "Deleted: " << hash_arr[i]->get_data() << std::endl;
-  //       try {
-  //         delete hash_arr[i];
-  //       } catch (const std::exception &e) {
-  //         std::cerr << e.what() << std::endl;
-  //       }
-  //     }
-  //   } catch (const std::exception &e) {
-  //     std::cerr << e.what() << std::endl;
-  //   }
-  // }
+  HashTable(unsigned int n) {
+    table_len = n;
+    number_items = 0;
+    try {
+      for (int i = 0; i < table_len; i++) {
+        hash_arr[i] = Item();
+      }
+    } catch (const std::exception &e) {
+      std::cerr << e.what() << std::endl;
+    }
+  }
+
   /**
    * @brief simple hash function that increases the value on each loop according
    * to the integer value of the char. \f$O(N)\f$ where N is the str length.
@@ -92,7 +145,7 @@ public:
         index++;
         index %= table_len;
       }
-      hash_arr[index] = Item(str,line);
+      hash_arr[index] = Item(str, line);
       number_items++;
     } catch (const std::exception &e) {
       std::cerr << e.what() << std::endl;
@@ -108,7 +161,6 @@ public:
    */
   int search(const std::string &str) {
     try {
-
       int index = hash_function(str);
       std::string search_res = "";
       int count = 0;
@@ -136,6 +188,35 @@ public:
         if (hash_arr[i].get_data() != "") {
           std::cout << hash_arr[i].get_data() << std::endl;
         }
+      }
+    } catch (const std::exception &e) {
+      std::cerr << e.what() << std::endl;
+    }
+  }
+
+  /**
+   * @brief Prints every word with a value in it using the user's locale to
+   * determine the order. This is \f$O(N^2)f$ complexity, where the worst case
+   * is the Quicksort's worst case.
+   * If it finds a french locale to use in collate, it will use those rules, else it will sort using global locale.
+   *
+   */
+  void print_sorted_words(std::string locale) {
+    std::vector<std::string> words;
+    words.reserve(SIZE);
+    try {
+      for (int i = 0; i < SIZE - 1; i++) {
+        if (hash_arr[i].get_data() != "") {
+          words.push_back(hash_arr[i].get_data());
+        }
+      }
+      if (locale.find("fr")) {
+        std::sort(words.begin(), words.end(), localeComparator(std::locale(locale)));
+      } else {
+        quickSort(words, 0, words.size() - 1);
+      }
+      for (auto word : words) {
+        std::cout << word << std::endl;
       }
     } catch (const std::exception &e) {
       std::cerr << e.what() << std::endl;

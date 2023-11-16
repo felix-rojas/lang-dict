@@ -1,5 +1,5 @@
-#ifndef PREPROCESS_XML
-#define PREPROCESS_XML
+#ifndef PREPROCESS_XML_HPP_
+#define PREPROCESS_XML_HPP_
 
 #include <filesystem>
 #include <fstream>
@@ -103,4 +103,4 @@ public:
   /** @} */ // end of functions_group
 };
 
-#endif // PREPROCESS_XML
+#endif // PREPROCESS_XML_HPP_
